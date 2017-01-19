@@ -1,9 +1,9 @@
 <?php
     class Car
-    {   // Properties
-      public $make_model;
-      public $price;
-      public $miles;
+    {
+      private $make_model;
+      private $price;
+      private $miles;
 
       function __construct($car_make_model, $car_price, $car_miles)
       {
@@ -16,44 +16,41 @@
       {
           return $this->price < ($max_price_inputted + 100);
       }
-    }
 
-    // Instantiating Four Car Objects
-    $porsche = new Car("Porsche 911", 56899, 120000);
-    $ford = new Car("Ford F-150", 34444, 88989);
-    $lexus = new Car("Lexus poodoo", 85000, 75857);
+      $matching_cars = array();
 
-    $cars = array($porsche, $ford, $lexus);
-    // end object
-
-    $matching_cars = array();
-
-    foreach ($cars as $car) {
-      if ($car->worthBuying($_GET["price"])) {
-        array_push($matching_cars, $car);
+      // SET GET MAKE MODEL
+      function setMakeModel($new_make_model)
+      {
+          $this->make_model = $new_make_model;
       }
+      function getMakeModel()
+      {
+          return $this->make_model;
+      }
+
+      // SET GET PRICE
+      function setPrice($new_price)
+      {
+          $this->price = $new_price;
+      }
+      function getPrice()
+      {
+          return $this->price;
+      }
+
+      // SET GET MILES
+      function setMiles($new_miles)
+      {
+          $this->miles = $new_miles;
+      }
+      function getMiles()
+      {
+          return $this->miles;
+      }
+
     }
+
+
 
 ?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Cars</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Cars</h1>
-      <ul>
-        <?php
-            foreach ($matching_cars as $car) {
-              echo "<li>$" . $car->price . " - " . $car->make_model . " " . $car->miles . " miles </li>";
-            }
-        ?>
-      </ul>
-    </div>
-
-  </body>
-</html>
