@@ -17,8 +17,6 @@
           return $this->price < ($max_price_inputted + 100);
       }
 
-      $matching_cars = array();
-
       // SET GET MAKE MODEL
       function setMakeModel($new_make_model)
       {

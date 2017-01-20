@@ -10,7 +10,13 @@
       $ford = new Car("Ford F-150", 34444, 88989);
       $lexus = new Car("Lexus poodoo", 85000, 75857);
       $cars = array($porsche, $ford, $lexus);
-      echo "string";
+
+      $output = "";
+      foreach ($cars as $car) {
+          $output = $output . $car->getMakeModel();
+      }
+      return $output;
+
     });
 
     return $app;
