@@ -16,7 +16,7 @@
 
       function worthBuying($max_price_inputted)
       {
-          return $this->price < ($max_price_inputted + 100);
+          return $this->price < ($max_price_inputted);
       }
 
       // SETTERS-GETTERS MAKE MODEL
